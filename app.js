@@ -19,6 +19,7 @@ app.use(errorHandlers.notFound);
 app.use(log.logger);
 app.use(express.static(__dirname + '/static'));
 app.use(errorHandlers.error);
+app.set('view engine', 'ejs');
 
 app.listen(3000);
 
