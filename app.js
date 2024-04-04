@@ -12,6 +12,7 @@ app.get('/chat', routes.chat);
 app.use(errorHandlers.notFound);
 app.use(log.logger);
 app.use(express.static(__dirname + '/static'));
+app.use(errorHandlers.error);
 
 app.listen(3000);
 
