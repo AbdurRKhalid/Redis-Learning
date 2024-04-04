@@ -2,6 +2,7 @@ var express = require('express');
 var app = express()
 var routes = require('./routes');
 var errorHandlers = require('./middlewares/errorhandlers');
+var log = require('./middlewares/log');
 
 
 app.get('/', routes.index);
@@ -9,6 +10,7 @@ app.get('/login', routes.login);
 app.post('/proces-login', routes.loginProcess);
 app.get('/chat', routes.chat);
 app.use(errorHandlers.notFound);
+app.use(log.logger);
 
 app.listen(3000);
 
