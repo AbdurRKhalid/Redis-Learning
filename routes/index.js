@@ -4,7 +4,7 @@ module.exports.loginProcess = loginProcess
 module.exports.chat = chat
 
 function index(req, res) {
-    res.render('index')
+    res.render('index', {title: 'index'})
 }
 
 function login(req, res) {
