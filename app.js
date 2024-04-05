@@ -5,6 +5,8 @@ var errorHandlers = require('./middlewares/errorhandlers');
 var log = require('./middlewares/log');
 var partials = require('express-partials');
 var cookieParser = require('cookie-parser');
+var session = require('express-session');
+
 
 
 
@@ -13,13 +15,13 @@ app.get('/', routes.index);
 app.get('/login', routes.login);
 app.post('/proces-login', routes.loginProcess);
 app.get('/chat', routes.chat);
-app.get('/error', function(req, res, next) {
+app.get('/error', function (req, res, next) {
     next(new Error('A Custom Generated Error!'))
 });
 
 // Middleware implementations.
 app.use(partials())
-app.set('view options', {defaultLayout: 'layout'});
+app.set('view options', { defaultLayout: 'layout' });
 app.set('view engine', 'ejs');
 app.use(errorHandlers.notFound);
 app.use(log.logger);
@@ -27,6 +29,14 @@ app.use(express.static(__dirname + '/static'));
 app.use(errorHandlers.error);
 app.use(express.static(__dirname + '/static'));
 app.use(cookieParser());
+app.use(session({ secret: 'secret' }));
+app.use(function (req, res, next) {
+    if (req.session.pageCount)
+        req.session.pageCount++;
+    else
+        req.session.pageCount = 1;
+    next();
+});
 
 
 

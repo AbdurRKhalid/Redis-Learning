@@ -7,7 +7,8 @@ function index(req, res) {
     res.cookie('Index Cookies', 'This is Set from Index.JS from Back-End!');
     res.render('index', {
         title: 'index', 
-        cookie: JSON.stringify(req.cookies)
+        cookie: JSON.stringify(req.cookies),
+        session: JSON.stringify(req.session)
     });
 }
 
