@@ -4,6 +4,8 @@ var routes = require('./routes');
 var errorHandlers = require('./middlewares/errorhandlers');
 var log = require('./middlewares/log');
 var partials = require('express-partials');
+var cookieParser = require('cookie-parser');
+
 
 
 // Routers Implementations,
