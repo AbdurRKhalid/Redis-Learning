@@ -16,13 +16,14 @@ app.get('/error', function(req, res, next) {
 });
 
 // Middleware implementations.
+app.use(partials())
+app.set('view options', {defaultLayout: 'layout'});
+app.set('view engine', 'ejs');
 app.use(errorHandlers.notFound);
 app.use(log.logger);
 app.use(express.static(__dirname + '/static'));
 app.use(errorHandlers.error);
-app.set('view engine', 'ejs');
-app.use(partials())
-app.set('view options', {defaultLayout: 'layout'})
+
 
 
 app.listen(3000);
