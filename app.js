@@ -3,6 +3,7 @@ var app = express()
 var routes = require('./routes');
 var errorHandlers = require('./middlewares/errorhandlers');
 var log = require('./middlewares/log');
+var partials = require('express-partials');
 
 
 // Routers Implementations,
@@ -20,6 +21,9 @@ app.use(log.logger);
 app.use(express.static(__dirname + '/static'));
 app.use(errorHandlers.error);
 app.set('view engine', 'ejs');
+app.use(partials())
+app.set('view options', {defaultLayout: 'layout'})
+
 
 app.listen(3000);
 

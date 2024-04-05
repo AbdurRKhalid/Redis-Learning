@@ -8,7 +8,7 @@ function index(req, res) {
 }
 
 function login(req, res) {
-    res.send('Login');
+    res.render('login', {title: 'login'});
 }
 
 function loginProcess(req, res) {
@@ -16,5 +16,5 @@ function loginProcess(req, res) {
 }
 
 function chat(req, res) {
-    res.send('Chat');
+    res.render('chat', {title: 'chat'});
 }
