@@ -8,7 +8,7 @@ function index(req, res) {
 }
 
 function login(req, res) {
-    res.render('login', {title: 'login'});
+    res.render('login', {title: 'login', body: 'body'});
 }
 
 function loginProcess(req, res) {
@@ -16,5 +16,5 @@ function loginProcess(req, res) {
 }
 
 function chat(req, res) {
-    res.render('chat', {title: 'chat'});
+    res.render('chat', {title: 'chat', body: 'chat'});
 }
