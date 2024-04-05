@@ -25,6 +25,8 @@ app.use(errorHandlers.notFound);
 app.use(log.logger);
 app.use(express.static(__dirname + '/static'));
 app.use(errorHandlers.error);
+app.use(express.static(__dirname + '/static'));
+app.use(cookieParser());
 
 
 
